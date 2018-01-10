@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rewards</title>
+
+    <style>
+        table, th, td {
+            border-collapse:collapse;
+            border: 10px ridge lightskyblue;
+        }
+
+        th,td{
+            width: 0.5%;
+        }
+
+        th{
+            background:url("../static/images/greeny-vine.jpg");
+        }
+
+        td{
+            background:url("../static/images/pink.jpg")
+        }
+
+    .P1{
+        color: purple;
+        font-size: 30px ;
+        text-align: center;
+    }
+
+    .blink_me{
+        text-align: center ;
+        font-size: 50px ;
+     -webkit-animation: bgcolorchange 3s infinite;
+     animation: 3s infinite bgcolorchange;
+    }
+    @keyframes bgcolorchange {
+        0% {
+            color: red;
+        }
+        25% {
+            color: orange;
+        }
+        50%{
+            color: yellow;
+        }
+        75% {
+            color: greenyellow ;
+        }
+        100%    {
+            color: red;
+        }
+    }
+
+    table{
+        width: 50% ;
+        height: 50% ;
+        text-align: center ;
+    }
+
+    img {
+        /*float: left;*/
+        width:  300px;
+        height: 250px;
+        /*background-position: 50% 50%;*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: cover;*/
+        /*align-content: center ;*/
+        /*vertical-align: center;*/
+    }
+
+     .Button{
+       display: inline-block;
+       border-radius: 4px;
+       background-color: darkorange;
+       border: none;
+       color: #FFFFFF;
+       text-align: center;
+       font-size: 28px;
+       padding: 20px;
+       width: 200px;
+       transition: all 0.5s;
+       cursor: pointer;
+       margin: 5px;
+     }
+
+    .Button span{
+       cursor: pointer;
+       display: inline-block;
+       position: relative;
+       transition: 0.5s;
+    }
+
+    .Button span:after{
+       content: '\00bb';
+       position: absolute;
+       opacity: 0;
+       top: 0;
+       right: -20px;
+       transition: 0.5s;
+    }
+    .Button:hover span {
+       padding-right: 25px;
+    }
+
+    .Button:hover span:after{
+        opacity: 1;
+        right: 0;
+    }
+
+        .Button.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+            display: none;
+}
+        #u:hover{
+            content: url("../static/images/grabinfo.PNG");
+        }
+        #a:hover{
+            content: url("../static/images/popinfo.PNG");
+        }
+        #b:hover{
+            content: url("../static/images/takainfo.PNG");
+        }
+        #c:hover{
+            content: url("../static/images/koiinfo.PNG");
+        }
+        #d:hover{
+            content: url("../static/images/ntucinfo.PNG");
+        }
+        #e:hover{
+            content: url("../static/images/uberinfo.PNG");
+        }
+    </style>
+</head>
+    <body>
+    {% extends 'layout.html' %}
+    {% block body %}
+        <div style="margin-left: 37%">
+            <p style="color: #0082C6; font-size: 40px">Your Total Credit Score: 95</p>
+        </div>
+    <br>
+    <table style = "width:100%">
+        <tr>
+            <th class="P1">Uber $5 Off</th>
+            <th class="P1">$5 NTUC Voucher</th>
+            <th class="P1">Free KOI Bubble Tea</th>
+        </tr>
+        <tr>
+            <td class="img">
+                <img  id="e" style="width:300px" src="../static/images/Uber5off.png">
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>>
+            </td>
+            <td class="img">
+                <img id="d" src="../static/images/Ntuc.PNG">
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>>
+            </td>
+            <td class="img">
+                <img id="c" src="../static/images/Koi.jpg" >
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>>
+            </td>
+        </tr>
+        <tr>
+            <th class="P1">Takashimaya Gift Voucher</th>
+            <th class="P1">Popular Voucher</th>
+            <th class="P1">Grab $5 Off</th>
+        </tr>
+        <tr>
+            <td align="center" valign="center">
+                <img id="b" src="../static/images/Taka20.jpg">
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>
+            </td>
+            <td align="center" valign="center">
+                <img id="a"  src="../static/images/popular.jpg">
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>
+            </td>
+            <td align="center" valign="center">
+                <img id="u"   src="../static/images/grab5.jpg">
+                <button class="Button" style="vertical-align: middle" onclick="test()"><span>Redeem</span></button>
+            </td>
+        </tr>
+    </table>
+
+    <h2 class="blink_me">REWARDS REFRESH EVERY 2 DAY!</h2>
+
+        <script>
+            function test() {
+                var disButton = confirm("Are you sure?");
+                if (disButton == true) {
+                    document.getElementsByClassName("Button")[2].disabled = true;
+                }
+            }
+
+        </script>
+
+    {% endblock %}
+    </body>
+    </html>
